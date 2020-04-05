@@ -49,14 +49,42 @@
         <!--UpcomingVC-->
         <scene sceneID="X0k-nM-Pg2">
             <objects>
-                <viewController id="ToH-sZ-fMy" customClass="UpcomingVC" customModule="WishList_v1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ToH-sZ-fMy" customClass="UpcomingVC" customModule="WishList_v1" customModuleProvider="target" propertyAccessControl="all" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nuw-t1-wbO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jhN-Ax-JRU">
+                                <rect key="frame" x="0.0" y="123" width="414" height="719"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="78" id="10o-Sa-3VK">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="10o-Sa-3VK" id="iFs-DM-7Ud">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.4941176471" green="0.81176470590000005" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9s-f1-90G" propertyAccessControl="none">
+                                <rect key="frame" x="20" y="64" width="273" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="YNI-iZ-BTQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="iyF-xW-JW1"/>
+                    <connections>
+                        <outlet property="myTableView" destination="jhN-Ax-JRU" id="HAr-xn-Re3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoq-UI-3fE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

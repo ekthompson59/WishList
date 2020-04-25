@@ -13,7 +13,8 @@ class UpcomingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var myTableView: UITableView!
     
     
-    var upcomingItems: [String] = ["purse", "jacket", "curling iron"]
+    @IBOutlet weak var newItemTextField: UITextField!
+    var upcomingItems: [String] = [""]
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,15 +33,13 @@ class UpcomingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             myTableView.reloadData()
         }
     }
-    //    func textFieldDidEndEditing(textfield: UITextField) {
-    //        upcomingItems.append(textfield.text!)
-    //        print(upcomingItems)
-    //    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         myTableView.delegate = self
         myTableView.dataSource = self
+        configureTextFields()
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,6 +47,26 @@ class UpcomingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    
-    
+    func configureTextFields() {
+        newItemTextField.delegate = self
+    }
 }
+
+    extension UpcomingVC: UITextFieldDelegate {
+        // When user press the return key in keyboard
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            upcomingItems.append(newItemTextField.text!)
+            textField.resignFirstResponder()
+            return true
+        }
+   
+        // It is called when text field is inactive
+        func textFieldDidEndEditing(_ textField: UITextField) {
+            textField.text = ""
+            myTableView.reloadData()
+        }
+        
+    
+    }
+    
+
